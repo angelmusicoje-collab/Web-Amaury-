@@ -1,0 +1,90 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700;9..144,900&family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+  --ink: #111111;
+  --ink-soft: #2a2a2a;
+  --paper: #F4EFE6;
+  --paper-2: #ECE5D5;
+  --lava: #C8341B;
+  --lava-dark: #A52914;
+  --stone: #6B6B6B;
+  --stone-soft: #9A9A9A;
+  --border: rgba(17, 17, 17, 0.12);
+  --serif: 'Fraunces', 'Georgia', serif;
+  --sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --container: 1200px;
+  --container-text: 720px;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  font-family: var(--sans);
+  background: var(--paper);
+  color: var(--ink);
+  line-height: 1.6;
+  font-size: 17px;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--serif);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  margin: 0 0 0.5em;
+  color: var(--ink);
+}
+h1 { font-size: clamp(2rem, 5vw, 3.5rem); }
+h2 { font-size: clamp(1.5rem, 3.5vw, 2.25rem); }
+h3 { font-size: 1.5rem; }
+
+p { margin: 0 0 1.2em; }
+
+a { color: var(--ink); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 3px; }
+a:hover { color: var(--lava); }
+
+img { max-width: 100%; height: auto; display: block; }
+
+hr { border: 0; border-top: 1px solid var(--border); margin: 2rem 0; }
+
+.container {
+  width: 100%;
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.container-text {
+  max-width: var(--container-text);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.label {
+  font-family: var(--sans);
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: var(--lava);
+  text-decoration: none;
+}
+
+.dek {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: 1.25rem;
+  line-height: 1.45;
+  color: var(--stone);
+  font-style: italic;
+}
+
+.meta {
+  font-size: 0.85rem;
+  color: var(--stone);
+  letter-spacing: 0.02em;
+}

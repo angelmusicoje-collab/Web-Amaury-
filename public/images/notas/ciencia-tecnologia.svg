@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice">
+  <rect width="1600" height="900" fill="#F4EFE6"/>
+  <g transform="translate(0, 120)">
+    <ellipse cx="640" cy="-30" rx="90" ry="22" fill="#6B6B6B" opacity="0.18"/>
+    <ellipse cx="610" cy="-10" rx="70" ry="24" fill="#6B6B6B" opacity="0.28"/>
+    <ellipse cx="640" cy="30" rx="55" ry="22" fill="#6B6B6B" opacity="0.5"/>
+    <path d="M 0 700 L 380 240 L 510 420 L 640 60 L 770 280 L 900 700 Z" fill="#111"/>
+    <path d="M 700 700 L 900 380 L 1100 700 Z" fill="#111" opacity="0.65"/>
+    <circle cx="400" cy="300" r="7" fill="#C8341B"/>
+    <line x1="400" y1="300" x2="260" y2="300" stroke="#C8341B" stroke-width="1"/>
+    <text x="248" y="304" text-anchor="end" font-family="Inter, system-ui, sans-serif" font-size="12" letter-spacing="3" fill="#6B6B6B" font-weight="600">SISMÓGRAFO</text>
+    <circle cx="560" cy="400" r="7" fill="#C8341B"/>
+    <line x1="560" y1="400" x2="680" y2="400" stroke="#C8341B" stroke-width="1"/>
+    <text x="692" y="404" font-family="Inter, system-ui, sans-serif" font-size="12" letter-spacing="3" fill="#6B6B6B" font-weight="600">MONITOREO DE GASES</text>
+    <circle cx="830" cy="500" r="7" fill="#C8341B"/>
+    <line x1="830" y1="500" x2="950" y2="500" stroke="#C8341B" stroke-width="1"/>
+    <text x="962" y="504" font-family="Inter, system-ui, sans-serif" font-size="12" letter-spacing="3" fill="#6B6B6B" font-weight="600">CÁMARA TÉRMICA</text>
+  </g>
+  <g transform="translate(1150, 280)">
+    <text font-family="Inter, system-ui, sans-serif" font-size="13" letter-spacing="4" fill="#C8341B" font-weight="600">CIENCIA Y TECNOLOGÍA</text>
+    <text y="70" font-family="Fraunces, Georgia, serif" font-size="60" font-weight="800" fill="#111">El volcán</text>
+    <text y="140" font-family="Fraunces, Georgia, serif" font-size="60" font-weight="800" fill="#111">también</text>
+    <text y="210" font-family="Fraunces, Georgia, serif" font-size="60" font-weight="800" fill="#C8341B">habla.</text>
+    <text y="275" font-family="Fraunces, Georgia, serif" font-size="18" font-style="italic" fill="#6B6B6B">Vigilancia del Coloso</text>
+    <text y="300" font-family="Fraunces, Georgia, serif" font-size="18" font-style="italic" fill="#6B6B6B">de Fuego en Colima.</text>
+  </g>
+  <line x1="100" y1="830" x2="1500" y2="830" stroke="#111" stroke-width="1"/>
+  <text x="100" y="865" font-family="Inter, system-ui, sans-serif" font-size="12" letter-spacing="3" fill="#6B6B6B" font-weight="600">MERIDIANO 104 · DIAGRAMA SIMBÓLICO DEL SISTEMA DE MONITOREO</text>
+</svg>

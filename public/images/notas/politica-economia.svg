@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice">
+  <rect width="1600" height="900" fill="#F4EFE6"/>
+  <g transform="translate(100, 180)">
+    <text font-family="Inter, system-ui, sans-serif" font-size="14" letter-spacing="4" fill="#C8341B" font-weight="600">POLÍTICA Y ECONOMÍA</text>
+    <text y="90" font-family="Fraunces, Georgia, serif" font-size="86" font-weight="800" fill="#111">¿A dónde va</text>
+    <text y="190" font-family="Fraunces, Georgia, serif" font-size="86" font-weight="800" fill="#C8341B">el dinero?</text>
+    <text y="240" font-family="Inter, system-ui, sans-serif" font-size="16" letter-spacing="3" fill="#6B6B6B">PRESUPUESTO COLIMA 2026 · DISTRIBUCIÓN ESTIMADA</text>
+  </g>
+  <g transform="translate(100, 510)">
+    <rect x="0" y="0" width="480" height="34" fill="#111"/>
+    <text x="495" y="24" font-family="Inter, system-ui, sans-serif" font-size="16" fill="#111" font-weight="500">Educación</text>
+    <rect x="0" y="52" width="340" height="34" fill="#C8341B"/>
+    <text x="355" y="76" font-family="Inter, system-ui, sans-serif" font-size="16" fill="#111" font-weight="500">Seguridad</text>
+    <rect x="0" y="104" width="380" height="34" fill="#6B6B6B"/>
+    <text x="395" y="128" font-family="Inter, system-ui, sans-serif" font-size="16" fill="#111" font-weight="500">Nómina pública</text>
+    <rect x="0" y="156" width="260" height="34" fill="#111"/>
+    <text x="275" y="180" font-family="Inter, system-ui, sans-serif" font-size="16" fill="#111" font-weight="500">Salud</text>
+    <rect x="0" y="208" width="180" height="34" fill="#9A9A9A"/>
+    <text x="195" y="232" font-family="Inter, system-ui, sans-serif" font-size="16" fill="#111" font-weight="500">Infraestructura</text>
+  </g>
+  <g transform="translate(1080, 280)">
+    <text font-family="Inter, system-ui, sans-serif" font-size="13" letter-spacing="5" fill="#6B6B6B" font-weight="600">TOTAL APROBADO</text>
+    <text y="110" font-family="Fraunces, Georgia, serif" font-size="108" font-weight="900" fill="#111">22 MMDP</text>
+    <text y="150" font-family="Inter, system-ui, sans-serif" font-size="18" fill="#6B6B6B">+ 22 mil millones de pesos</text>
+    <text y="175" font-family="Inter, system-ui, sans-serif" font-size="14" fill="#9A9A9A" font-style="italic">cifra estimada del paquete</text>
+  </g>
+  <line x1="100" y1="830" x2="1500" y2="830" stroke="#111" stroke-width="1"/>
+  <text x="100" y="865" font-family="Inter, system-ui, sans-serif" font-size="12" letter-spacing="3" fill="#6B6B6B" font-weight="600">MERIDIANO 104 · INFOGRAFÍA EDITORIAL</text>
+  <text x="1500" y="865" text-anchor="end" font-family="Inter, system-ui, sans-serif" font-size="12" letter-spacing="3" fill="#6B6B6B">104°O · COLIMA</text>
+</svg>

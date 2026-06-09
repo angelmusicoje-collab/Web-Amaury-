@@ -1,0 +1,101 @@
+---
+import Logo from './Logo.astro';
+const year = new Date().getFullYear();
+---
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="cols">
+      <div class="brand">
+        <Logo />
+        <p class="tagline">Colima en el centro, el mundo alrededor.</p>
+        <p class="ident">104&deg;O / Proyecto editorial digital</p>
+      </div>
+
+      <div class="col">
+        <h4>Secciones</h4>
+        <ul>
+          <li><a href="/seccion/local">Local</a></li>
+          <li><a href="/seccion/politica-economia">Politica y economia</a></li>
+          <li><a href="/seccion/sociedad">Sociedad</a></li>
+          <li><a href="/seccion/ciencia-tecnologia">Ciencia y tecnologia</a></li>
+          <li><a href="/seccion/cultura">Cultura</a></li>
+          <li><a href="/seccion/deporte">Deporte</a></li>
+        </ul>
+      </div>
+
+      <div class="col">
+        <h4>Mas</h4>
+        <ul>
+          <li><a href="/seccion/opinion">Opinion</a></li>
+          <li><a href="/fotogaleria">Fotogaleria</a></li>
+          <li><a href="/seccion/medios-redes">Medios y redes</a></li>
+          <li><a href="/blogroll">Blogroll</a></li>
+          <li><a href="/sobre">Sobre el proyecto</a></li>
+        </ul>
+      </div>
+
+      <div class="col">
+        <h4>Siguenos</h4>
+        <ul>
+          <li><a href="https://instagram.com/meridiano104" rel="noopener">Instagram</a></li>
+          <li><a href="https://x.com/meridiano104" rel="noopener">X / Twitter</a></li>
+          <li><a href="https://tiktok.com/@meridiano104" rel="noopener">TikTok</a></li>
+          <li><a href="#" rel="noopener">YouTube</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="bottom">
+      <span>&copy; {year} Meridiano 104</span>
+      <span>Colima, Mexico &middot; 104&deg;O</span>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    border-top: 1px solid var(--border);
+    background: var(--paper-2);
+    padding: 3rem 0 2rem;
+    margin-top: 5rem;
+  }
+  .cols {
+    display: grid;
+    grid-template-columns: 1.5fr repeat(3, 1fr);
+    gap: 2rem;
+  }
+  @media (max-width: 800px) {
+    .cols { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 480px) {
+    .cols { grid-template-columns: 1fr; }
+  }
+  h4 {
+    font-family: var(--sans);
+    font-size: 0.75rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--stone);
+    margin: 0 0 0.8rem;
+    font-weight: 600;
+  }
+  ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.4rem; }
+  .site-footer a { text-decoration: none; color: var(--ink-soft); font-size: 0.95rem; }
+  .site-footer a:hover { color: var(--lava); }
+  .tagline { font-family: var(--serif); font-style: italic; color: var(--stone); margin: 0.8rem 0 0.3rem; max-width: 26ch; }
+  .ident { font-size: 0.78rem; color: var(--stone-soft); letter-spacing: 0.06em; }
+  .bottom {
+    border-top: 1px solid var(--border);
+    margin-top: 2.5rem;
+    padding-top: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.8rem;
+    color: var(--stone);
+    letter-spacing: 0.04em;
+  }
+  @media (max-width: 480px) {
+    .bottom { flex-direction: column; gap: 0.4rem; }
+  }
+</style>

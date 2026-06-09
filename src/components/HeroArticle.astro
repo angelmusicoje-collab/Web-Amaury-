@@ -1,0 +1,113 @@
+---
+interface Props {
+  href: string;
+  section: string;
+  sectionLabel: string;
+  title: string;
+  dek: string;
+  cover?: string;
+}
+const { href, section, sectionLabel, title, dek, cover } = Astro.props;
+---
+<section class="hero">
+  <div class="container hero-grid">
+    <div class="text">
+      <a href={`/seccion/${section}`} class="label">{sectionLabel} &middot; Nota destacada</a>
+      <h1><a href={href}>{title}</a></h1>
+      <p class="dek">{dek}</p>
+      <div class="ctas">
+        <a class="cta primary" href={href}>Leer nota principal</a>
+        <a class="cta" href="#secciones">Explorar secciones</a>
+      </div>
+    </div>
+    <div class="art">
+      <div class="art-inner" style={cover ? `background-image:url(${cover})` : undefined}>
+        {!cover && (
+          <div class="placeholder">
+            <span class="big">104&deg;O</span>
+            <span class="small">Colima &middot; Mexico</span>
+          </div>
+        )}
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero {
+    padding: 3rem 0 4rem;
+    border-bottom: 1px solid var(--border);
+    background: radial-gradient(ellipse at top right, rgba(200,52,27,0.06), transparent 60%), var(--paper);
+  }
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+  }
+  @media (max-width: 880px) {
+    .hero-grid { grid-template-columns: 1fr; gap: 2rem; }
+  }
+  .text h1 {
+    font-size: clamp(2rem, 5vw, 3.4rem);
+    margin: 0.8rem 0;
+    letter-spacing: -0.015em;
+  }
+  .text h1 a { text-decoration: none; }
+  .text h1 a:hover { color: var(--lava-dark); }
+  .text .dek {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 1.25rem;
+    color: var(--stone);
+    line-height: 1.45;
+    max-width: 38ch;
+  }
+  .ctas { display: flex; gap: 0.8rem; margin-top: 1.4rem; flex-wrap: wrap; }
+  .cta {
+    text-decoration: none;
+    font-weight: 600;
+    padding: 0.7rem 1.2rem;
+    border: 1px solid var(--ink);
+    color: var(--ink);
+    font-size: 0.9rem;
+    letter-spacing: 0.02em;
+    border-radius: 2px;
+  }
+  .cta.primary { background: var(--ink); color: var(--paper); }
+  .cta:hover { background: var(--lava); border-color: var(--lava); color: var(--paper); }
+  .art-inner {
+    background: var(--paper-2);
+    aspect-ratio: 4/5;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    overflow: hidden;
+    border-radius: 2px;
+  }
+  .placeholder {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0.4rem;
+    background:
+      linear-gradient(180deg, rgba(0,0,0,0.05), rgba(0,0,0,0.15)),
+      var(--paper-2);
+  }
+  .placeholder .big {
+    font-family: var(--serif);
+    font-size: clamp(3rem, 8vw, 5rem);
+    color: var(--lava);
+    font-weight: 800;
+    letter-spacing: 0.04em;
+  }
+  .placeholder .small {
+    font-size: 0.8rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--stone);
+  }
+</style>

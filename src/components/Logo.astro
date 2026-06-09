@@ -1,0 +1,32 @@
+---
+interface Props { compact?: boolean; link?: boolean; }
+const { compact = false, link = true } = Astro.props;
+const Tag = link ? 'a' : 'div';
+---
+<Tag href={link ? '/' : undefined} class:list={['logo', { compact }]}>
+  <span class="word">MERIDIANO</span>
+  <span class="num">104</span>
+</Tag>
+
+<style>
+  .logo {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 0.45em;
+    text-decoration: none;
+    color: var(--ink);
+    font-family: var(--serif);
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    line-height: 1;
+  }
+  .logo .word { font-size: 1.5rem; }
+  .logo .num {
+    font-size: 1.5rem;
+    color: var(--lava);
+    font-feature-settings: 'tnum' 1;
+  }
+  .compact .word, .compact .num { font-size: 1.05rem; }
+  a.logo:hover { color: var(--ink); }
+  a.logo:hover .num { color: var(--lava-dark); }
+</style>

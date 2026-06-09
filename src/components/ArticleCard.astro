@@ -1,0 +1,60 @@
+---
+interface Props {
+  href: string;
+  section: string;
+  sectionLabel: string;
+  title: string;
+  dek?: string;
+  size?: 'sm' | 'md' | 'lg';
+  cover?: string;
+}
+const { href, section, sectionLabel, title, dek, size = 'md', cover } = Astro.props;
+---
+<article class:list={['card', size]}>
+  {cover && (
+    <a href={href} class="cover-link">
+      <div class="cover" style={`background-image: url(${cover})`}></div>
+    </a>
+  )}
+  <a href={`/seccion/${section}`} class="label">{sectionLabel}</a>
+  <h3><a href={href}>{title}</a></h3>
+  {dek && <p class="dek">{dek}</p>}
+</article>
+
+<style>
+  .card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--border);
+  }
+  .cover {
+    background: var(--paper-2);
+    aspect-ratio: 16/10;
+    background-size: cover;
+    background-position: center;
+    margin-bottom: 0.6rem;
+    border-radius: 2px;
+  }
+  .cover-link { display: block; }
+  .card h3 {
+    font-size: 1.4rem;
+    margin: 0.2rem 0 0.3rem;
+    line-height: 1.2;
+  }
+  .card h3 a { text-decoration: none; }
+  .card h3 a:hover { color: var(--lava); }
+  .card .dek {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 1rem;
+    color: var(--stone);
+    margin: 0;
+    line-height: 1.45;
+  }
+  .card.lg h3 { font-size: 2rem; }
+  .card.lg .dek { font-size: 1.15rem; }
+  .card.sm h3 { font-size: 1.1rem; }
+  .card.sm .dek { font-size: 0.9rem; }
+</style>

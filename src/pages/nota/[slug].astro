@@ -1,0 +1,35 @@
+---
+import { getCollection } from 'astro:content';
+import ArticleLayout from '../../layouts/ArticleLayout.astro';
+
+export async function getStaticPaths() {
+  const notes = await getCollection('notes');
+  return notes.map((note) => ({ params: { slug: note.slug }, props: { note } }));
+}
+
+const SECTION_LABELS: Record<string, string> = {
+  'politica-economia': 'Politica y economia',
+  'sociedad': 'Sociedad',
+  'local': 'Local · Colima',
+  'ciencia-tecnologia': 'Ciencia y tecnologia',
+  'cultura': 'Cultura',
+  'deporte': 'Deporte',
+  'opinion': 'Opinion',
+  'medios-redes': 'Medios y redes',
+};
+
+const { note } = Astro.props;
+const { Content } = await note.render();
+---
+<ArticleLayout
+  title={note.data.title}
+  dek={note.data.dek}
+  section={note.data.section}
+  sectionLabel={SECTION_LABELS[note.data.section]}
+  author={note.data.author}
+  publishedAt={note.data.publishedAt}
+  sources={note.data.sources}
+  angle={note.data.angle}
+>
+  <Content />
+</ArticleLayout>

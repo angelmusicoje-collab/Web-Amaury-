@@ -1,0 +1,32 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+<BaseLayout title="No encontrado — Meridiano 104">
+  <section class="container container-text wrap">
+    <p class="kicker">Error 404</p>
+    <h1>Esta ruta quedo fuera del meridiano.</h1>
+    <p>La pagina que buscabas no existe o cambio de lugar. Te dejamos algunas rutas seguras:</p>
+    <ul>
+      <li><a href="/">Portada</a></li>
+      <li><a href="/seccion/local">Noticias locales</a></li>
+      <li><a href="/fotogaleria">Fotogaleria</a></li>
+      <li><a href="/sobre">Sobre el proyecto</a></li>
+    </ul>
+  </section>
+</BaseLayout>
+
+<style>
+  .wrap { padding: 5rem 0; }
+  .kicker {
+    font-family: var(--sans);
+    font-size: 0.75rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--lava);
+    font-weight: 600;
+    margin: 0;
+  }
+  h1 { font-size: clamp(2rem, 5vw, 3.5rem); margin: 0.5rem 0 1rem; }
+  ul { list-style: none; padding: 0; }
+  li { padding: 0.4rem 0; }
+</style>

@@ -1,0 +1,97 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+<BaseLayout title="Sobre el proyecto — Meridiano 104">
+  <section class="container container-text intro">
+    <p class="kicker">Sobre el proyecto</p>
+    <h1>Meridiano 104</h1>
+    <p class="lead">
+      Meridiano 104 nace desde Colima, cerca del meridiano 104 oeste, como una propuesta de
+      periodismo digital joven, visual y analitico. Su objetivo es contar lo local sin
+      encerrarse en lo local: mirar Colima como punto de partida para entender al pais y al mundo.
+      Datos cuando los hay, contexto cuando falta, criterio siempre.
+    </p>
+
+    <h2>Nuestra mirada</h2>
+    <p>
+      Vivimos un momento en que la noticia llega revuelta con opinion, entretenimiento y ruido
+      algoritmico. Meridiano 104 propone una pausa: explicar bien, con ritmo visual y lenguaje
+      directo, sin abandonar el oficio. Hacemos periodismo digital desde el estado mas pequeno
+      del pais porque creemos que el tamano del lugar no define la calidad de la mirada.
+    </p>
+
+    <h2>El equipo</h2>
+    <div class="team">
+      <article class="member">
+        <div class="avatar">AF</div>
+        <div>
+          <h3>Angel Federico Diaz Baltazar</h3>
+          <p class="role">Director general</p>
+          <p>
+            Estudiante de Ciencias de la Comunicacion. Se formo en contabilidad, trabaja en
+            videografia de bodas, programa cuando hace falta y participa como actor y cantante.
+            Su forma de leer la actualidad atraviesa la calle, la camara, los numeros y el
+            escenario: una mirada joven, directa y poco especializada en el peor sentido de esa palabra.
+          </p>
+        </div>
+      </article>
+    </div>
+
+    <h2>Por que 104</h2>
+    <p>
+      Colima se ubica aproximadamente sobre el meridiano 104 oeste. La cifra funciona como
+      brujula del proyecto: punto de origen y, al mismo tiempo, referencia para mirar todo lo
+      demas. Es un guino cartografico, no una etiqueta turistica.
+    </p>
+  </section>
+</BaseLayout>
+
+<style>
+  .intro { padding: 3rem 0 5rem; }
+  .kicker {
+    font-family: var(--sans);
+    font-size: 0.75rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--lava);
+    margin: 0;
+    font-weight: 600;
+  }
+  .intro h1 { margin: 0.4rem 0 1.5rem; font-size: clamp(2.5rem, 6vw, 4rem); }
+  .lead { font-size: 1.3rem; font-family: var(--serif); line-height: 1.55; color: var(--ink-soft); }
+  .intro h2 { margin-top: 2.5rem; font-size: 1.5rem; }
+  .intro p { line-height: 1.7; font-size: 1.05rem; color: var(--ink-soft); }
+  .team { display: flex; flex-direction: column; gap: 1.5rem; }
+  .member {
+    display: flex;
+    gap: 1.2rem;
+    padding: 1.5rem;
+    background: var(--paper-2);
+    border-radius: 4px;
+    align-items: flex-start;
+  }
+  .avatar {
+    width: 80px;
+    height: 80px;
+    flex-shrink: 0;
+    background: var(--ink);
+    color: var(--paper);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--serif);
+    font-size: 1.4rem;
+    font-weight: 700;
+  }
+  .member h3 { margin: 0 0 0.2rem; font-size: 1.2rem; }
+  .member .role {
+    font-size: 0.8rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--lava);
+    margin: 0 0 0.6rem;
+    font-weight: 600;
+  }
+  .member p:last-child { margin: 0; font-size: 0.95rem; }
+</style>

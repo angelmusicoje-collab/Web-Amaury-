@@ -1,0 +1,86 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ArticleCard from '../../components/ArticleCard.astro';
+import { getCollection } from 'astro:content';
+
+const SECTIONS: Record<string, { label: string; tagline: string }> = {
+  'politica-economia': { label: 'Politica y economia', tagline: 'Cifras, decisiones y poder.' },
+  'sociedad': { label: 'Sociedad', tagline: 'Problemas nacionales e internacionales.' },
+  'local': { label: 'Local · Colima', tagline: 'El estado en tiempo real.' },
+  'ciencia-tecnologia': { label: 'Ciencia y tecnologia', tagline: 'Lo que cambia como vivimos.' },
+  'cultura': { label: 'Cultura, arte, ocio y espectaculos', tagline: 'Lo que somos cuando no trabajamos.' },
+  'deporte': { label: 'Deporte', tagline: 'Cancha, ring y pista.' },
+  'opinion': { label: 'Opinion', tagline: 'Ensayos, columnas y postura editorial.' },
+  'medios-redes': { label: 'Medios y redes sociales', tagline: 'Como se cuenta la actualidad hoy.' },
+};
+
+export async function getStaticPaths() {
+  return [
+    'politica-economia', 'sociedad', 'local', 'ciencia-tecnologia',
+    'cultura', 'deporte', 'opinion', 'medios-redes',
+  ].map((seccion) => ({ params: { seccion } }));
+}
+
+const { seccion } = Astro.params;
+const info = SECTIONS[seccion as string];
+const allNotes = await getCollection('notes');
+const notes = allNotes.filter((n) => n.data.section === seccion);
+---
+<BaseLayout title={`${info.label} — Meridiano 104`}>
+  <section class="head">
+    <div class="container">
+      <p class="kicker">Seccion</p>
+      <h1>{info.label}</h1>
+      <p class="tagline">{info.tagline}</p>
+    </div>
+  </section>
+
+  <section class="container grid">
+    {notes.length === 0 ? (
+      <p class="empty">No hay notas en esta seccion todavia.</p>
+    ) : notes.map((n) => (
+      <ArticleCard
+        size="lg"
+        href={`/nota/${n.slug}`}
+        section={n.data.section}
+        sectionLabel={info.label}
+        title={n.data.title}
+        dek={n.data.dek}
+      />
+    ))}
+  </section>
+</BaseLayout>
+
+<style>
+  .head { padding: 3rem 0 2rem; border-bottom: 1px solid var(--border); }
+  .head .kicker {
+    font-family: var(--sans);
+    font-size: 0.75rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--lava);
+    margin: 0 0 0.6rem;
+    font-weight: 600;
+  }
+  .head h1 { margin: 0 0 0.8rem; font-size: clamp(2rem, 5vw, 3rem); }
+  .head .tagline {
+    font-family: var(--serif);
+    font-style: italic;
+    color: var(--stone);
+    font-size: 1.2rem;
+    margin: 0;
+    max-width: 50ch;
+  }
+  .grid {
+    padding: 3rem 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    max-width: var(--container-text);
+  }
+  .empty {
+    color: var(--stone);
+    font-family: var(--serif);
+    font-style: italic;
+  }
+</style>

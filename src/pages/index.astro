@@ -1,0 +1,105 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import HeroArticle from '../components/HeroArticle.astro';
+import ArticleCard from '../components/ArticleCard.astro';
+import { getCollection } from 'astro:content';
+
+const SECTION_LABELS: Record<string, string> = {
+  'politica-economia': 'Politica y economia',
+  'sociedad': 'Sociedad',
+  'local': 'Local · Colima',
+  'ciencia-tecnologia': 'Ciencia y tecnologia',
+  'cultura': 'Cultura',
+  'deporte': 'Deporte',
+  'opinion': 'Opinion',
+  'medios-redes': 'Medios y redes',
+};
+
+const notes = await getCollection('notes');
+const featured = notes.find((n) => n.data.section === 'local') ?? notes[0];
+const rest = notes.filter((n) => featured && n.slug !== featured.slug);
+---
+<BaseLayout>
+  {featured && (
+    <HeroArticle
+      href={`/nota/${featured.slug}`}
+      section={featured.data.section}
+      sectionLabel={SECTION_LABELS[featured.data.section]}
+      title={featured.data.title}
+      dek={featured.data.dek}
+    />
+  )}
+
+  <section class="container intro">
+    <p>Un medio digital hecho desde Colima para leer la actualidad con datos, mirada joven y criterio editorial.</p>
+  </section>
+
+  <section id="secciones" class="container grid">
+    {rest.map((n) => (
+      <ArticleCard
+        href={`/nota/${n.slug}`}
+        section={n.data.section}
+        sectionLabel={SECTION_LABELS[n.data.section]}
+        title={n.data.title}
+        dek={n.data.dek}
+      />
+    ))}
+  </section>
+
+  <section class="container about">
+    <h2>Sobre el proyecto</h2>
+    <p>
+      Meridiano 104 nace desde Colima, cerca del meridiano 104 oeste, como una propuesta
+      de periodismo digital joven, visual y analitico. Su objetivo es contar lo local sin
+      encerrarse en lo local: mirar Colima como punto de partida para entender al pais y al
+      mundo. Datos cuando los hay, contexto cuando falta, criterio siempre.
+    </p>
+    <p><a href="/sobre">Conoce mas sobre Meridiano 104 →</a></p>
+  </section>
+</BaseLayout>
+
+<style>
+  .intro {
+    padding: 3rem 0 1rem;
+    max-width: var(--container-text);
+  }
+  .intro p {
+    font-family: var(--serif);
+    font-size: 1.4rem;
+    line-height: 1.5;
+    color: var(--ink-soft);
+    margin: 0;
+  }
+  .grid {
+    padding: 2rem 0 3rem;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem 2.5rem;
+  }
+  @media (max-width: 880px) {
+    .grid { grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+  }
+  @media (max-width: 560px) {
+    .grid { grid-template-columns: 1fr; }
+  }
+  .about {
+    padding: 3rem 0 4rem;
+    max-width: var(--container-text);
+    border-top: 1px solid var(--border);
+  }
+  .about h2 {
+    font-size: 0.8rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--lava);
+    margin: 0 0 1rem;
+    font-family: var(--sans);
+    font-weight: 600;
+  }
+  .about p {
+    font-family: var(--serif);
+    font-size: 1.15rem;
+    line-height: 1.6;
+    color: var(--ink-soft);
+  }
+</style>

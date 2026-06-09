@@ -24,7 +24,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     <div class="team">
       <article class="member">
         <div class="avatar">AF</div>
-        <div>
+        <div class="member-body">
           <h3>Angel Federico Diaz Baltazar</h3>
           <p class="role">Director general</p>
           <p>
@@ -33,6 +33,11 @@ import BaseLayout from '../layouts/BaseLayout.astro';
             Su forma de leer la actualidad atraviesa la calle, la camara, los numeros y el
             escenario: una mirada joven, directa y poco especializada en el peor sentido de esa palabra.
           </p>
+          <ul class="social">
+            <li><a href="mailto:adiaz98@ucol.mx">adiaz98@ucol.mx</a></li>
+            <li><a href="https://www.facebook.com/share/17Zj4skGUZ/?mibextid=wwXIfr" rel="noopener" target="_blank">Facebook</a></li>
+            <li><a href="https://www.instagram.com/angeldiazpp?igsh=OGRidTlia3lhN3dm&utm_source=qr" rel="noopener" target="_blank">Instagram</a></li>
+          </ul>
         </div>
       </article>
     </div>
@@ -42,6 +47,14 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       Colima se ubica aproximadamente sobre el meridiano 104 oeste. La cifra funciona como
       brujula del proyecto: punto de origen y, al mismo tiempo, referencia para mirar todo lo
       demas. Es un guino cartografico, no una etiqueta turistica.
+    </p>
+
+    <h2>Contacto editorial</h2>
+    <p>
+      Para colaboraciones, comentarios o errores que debamos corregir, escribe a
+      <a href="mailto:adiaz98@ucol.mx">adiaz98@ucol.mx</a>. Tambien estamos en
+      <a href="https://www.facebook.com/share/17Zj4skGUZ/?mibextid=wwXIfr" rel="noopener" target="_blank">Facebook</a> y
+      <a href="https://www.instagram.com/angeldiazpp?igsh=OGRidTlia3lhN3dm&utm_source=qr" rel="noopener" target="_blank">Instagram</a>.
     </p>
   </section>
 </BaseLayout>
@@ -84,6 +97,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     font-size: 1.4rem;
     font-weight: 700;
   }
+  .member-body { flex: 1; }
   .member h3 { margin: 0 0 0.2rem; font-size: 1.2rem; }
   .member .role {
     font-size: 0.8rem;
@@ -93,5 +107,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     margin: 0 0 0.6rem;
     font-weight: 600;
   }
-  .member p:last-child { margin: 0; font-size: 0.95rem; }
+  .member p { margin: 0 0 1rem; font-size: 0.95rem; }
+  ul.social { list-style: none; padding: 0; margin: 0.8rem 0 0; display: flex; gap: 1rem; flex-wrap: wrap; }
+  ul.social a { font-size: 0.85rem; font-weight: 500; }
 </style>

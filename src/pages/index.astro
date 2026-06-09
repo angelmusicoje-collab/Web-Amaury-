@@ -16,10 +16,10 @@ const SECTION_LABELS: Record<string, string> = {
 };
 
 const notes = await getCollection('notes');
-const featured = notes.find((n) => n.data.section === 'local') ?? notes[0];
+const featured = notes.find((n) => n.data.featured) ?? notes.find((n) => n.data.section === 'local') ?? notes[0];
 const rest = notes.filter((n) => featured && n.slug !== featured.slug);
 ---
-<BaseLayout>
+<BaseLayout ogImage={featured?.data.cover ?? '/og-image.svg'}>
   {featured && (
     <HeroArticle
       href={`/nota/${featured.slug}`}
@@ -27,6 +27,7 @@ const rest = notes.filter((n) => featured && n.slug !== featured.slug);
       sectionLabel={SECTION_LABELS[featured.data.section]}
       title={featured.data.title}
       dek={featured.data.dek}
+      cover={featured.data.cover}
     />
   )}
 
@@ -42,6 +43,7 @@ const rest = notes.filter((n) => featured && n.slug !== featured.slug);
         sectionLabel={SECTION_LABELS[n.data.section]}
         title={n.data.title}
         dek={n.data.dek}
+        cover={n.data.cover}
       />
     ))}
   </section>

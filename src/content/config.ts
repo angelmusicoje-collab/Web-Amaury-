@@ -19,6 +19,7 @@ const notes = defineCollection({
     section: z.enum(SECTIONS),
     author: z.string().default('Redaccion Meridiano 104'),
     publishedAt: z.string(),
+    cover: z.string().optional(),
     sources: z
       .array(
         z.object({

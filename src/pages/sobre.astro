@@ -23,7 +23,14 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     <h2>El equipo</h2>
     <div class="team">
       <article class="member">
-        <div class="avatar">AF</div>
+        <div class="avatar">
+          <span class="initials">AF</span>
+          <img
+            src="/images/equipo/angel-federico.jpg"
+            alt="Angel Federico Diaz Baltazar"
+            onerror="this.remove()"
+          />
+        </div>
         <div class="member-body">
           <h3>Angel Federico Diaz Baltazar</h3>
           <p class="role">Director general</p>
@@ -84,18 +91,29 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     align-items: flex-start;
   }
   .avatar {
-    width: 80px;
-    height: 80px;
+    position: relative;
+    width: 96px;
+    height: 96px;
     flex-shrink: 0;
     background: var(--ink);
-    color: var(--paper);
     border-radius: 50%;
+    overflow: hidden;
     display: flex;
     align-items: center;
     justify-content: center;
+  }
+  .avatar .initials {
     font-family: var(--serif);
-    font-size: 1.4rem;
+    font-size: 1.6rem;
     font-weight: 700;
+    color: var(--paper);
+  }
+  .avatar img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
   .member-body { flex: 1; }
   .member h3 { margin: 0 0 0.2rem; font-size: 1.2rem; }

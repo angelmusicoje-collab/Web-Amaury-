@@ -2,39 +2,60 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 
 const photos = [
-  { src: '/images/galeria/01.jpg', caption: 'Fachada antigua bajo la luz lateral de la tarde.' },
-  { src: '/images/galeria/02.jpg', caption: 'Portal del centro con personas caminando bajo la sombra.' },
-  { src: '/images/galeria/03.jpg', caption: 'Detalle: ventana, puerta o balcon con ornamento tradicional.' },
-  { src: '/images/galeria/04.jpg', caption: 'Perspectiva de calle con arquitectura colonial en ambos costados.' },
-  { src: '/images/galeria/05.jpg', caption: 'Plaza publica: arboles, bancas y movimiento cotidiano.' },
-  { src: '/images/galeria/06.jpg', caption: 'Contraste entre comercio contemporaneo y construccion historica.' },
-  { src: '/images/galeria/07.jpg', caption: 'Detalle urbano: letrero, textura de pared, farol, pavimento.' },
-  { src: '/images/galeria/08.jpg', caption: 'Toma abierta del centro en ambiente de tarde colimense.' },
+  {
+    src: '/images/galeria/01%20imagen%20volcan%20colima.jpg',
+    caption: 'Volcan de Fuego de Colima: la presencia geologica que define el horizonte del estado.',
+  },
+  {
+    src: '/images/galeria/02%20Playa%20Puerto%20De%20Manzanillo.jpg',
+    caption: 'Puerto de Manzanillo: motor economico del Pacifico mexicano y nodo estrategico para Colima.',
+  },
+  {
+    src: '/images/galeria/03%20Colima%20Catedral%20Fachada.jpg',
+    caption: 'Catedral Basilica Menor de Colima: corazon religioso del centro historico de la capital.',
+  },
+  {
+    src: '/images/galeria/04%20Kiosko%20Del%20Jardin%20Libertad.jpg',
+    caption: 'Kiosco morisco del Jardin Libertad: simbolo y punto de encuentro de la ciudad de Colima.',
+  },
+  {
+    src: '/images/galeria/05%20Palmeras%20Colimotas.jpg',
+    caption: 'Palmeras colimotas: el paisaje vegetal que acompana la costa y el centro del estado.',
+  },
+  {
+    src: '/images/galeria/06%20Atardecer%20En%20Manzanillo.jpg',
+    caption: 'Hora dorada sobre el Pacifico, vista desde Manzanillo: la postal mas honesta del estado.',
+  },
+  {
+    src: '/images/galeria/07%20Comala%20Pueblo%20Magico.jpg',
+    caption: 'Comala, Pueblo Magico: la herencia colonial en blanco y rojo que sostiene la identidad colimota.',
+  },
+  {
+    src: '/images/galeria/08%20Vista%20Aerea%20del%20estado%20de%20colima.png',
+    caption: 'El estado entero desde el aire: contexto geografico de Colima, el meridiano 104 oeste como brujula.',
+  },
 ];
 ---
-<BaseLayout title="Fotogaleria — Centro historico de Colima — Meridiano 104">
+<BaseLayout title="Fotogaleria — Colima: paisajes y simbolos — Meridiano 104">
   <section class="head container container-text">
     <p class="kicker">Fotogaleria</p>
-    <h1>Centro historico de Colima: arquitectura y vida</h1>
+    <h1>Colima: paisajes y simbolos</h1>
     <p class="dek">
-      El centro historico de Colima no grita: respira. Esta galeria recorre fragmentos urbanos
-      donde la arquitectura y la vida diaria se cruzan sin pedir permiso. En sus fachadas,
-      portales, sombras y banquetas se guarda una parte de la memoria cotidiana del estado.
-      No hacen falta eventos ni efemerides para encontrar material: la ciudad esta ahi, disponible
-      y viva, todos los dias.
+      Ocho postales para mirar al estado entero. Del volcan al mar, del centro historico
+      al pueblo magico, de la palmera al puerto: una recorrida visual por los elementos
+      que dan forma a la identidad colimota. No buscamos el cliche turistico, sino la
+      imagen que sirve como punto de partida para entender al estado desde el meridiano 104.
     </p>
   </section>
 
   <section class="container gallery">
     {photos.map((p, i) => (
       <figure class:list={['photo', i % 3 === 0 ? 'wide' : '']}>
-        <div class="frame" style={`background-image:url(${p.src})`}>
-          <div class="placeholder">
-            <span class="ph-num">{String(i + 1).padStart(2, '0')}</span>
-            <span class="ph-label">Foto pendiente</span>
-          </div>
-        </div>
-        <figcaption>{p.caption}</figcaption>
+        <div class="frame" style={`background-image:url(${p.src})`}></div>
+        <figcaption>
+          <span class="num">{String(i + 1).padStart(2, '0')}</span>
+          <span>{p.caption}</span>
+        </figcaption>
       </figure>
     ))}
   </section>
@@ -64,39 +85,34 @@ const photos = [
     position: relative;
     border-radius: 2px;
     overflow: hidden;
+    box-shadow: 0 1px 3px rgba(17,17,17,0.08);
+    transition: transform 240ms ease, box-shadow 240ms ease;
+  }
+  .frame:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(17,17,17,0.12);
   }
   .photo.wide .frame { aspect-ratio: 21/9; }
-  .placeholder {
-    position: absolute;
-    inset: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 0.4rem;
-    background:
-      repeating-linear-gradient(45deg, rgba(0,0,0,0.02) 0 12px, transparent 12px 24px),
-      var(--paper-2);
-  }
-  .ph-num {
-    font-family: var(--serif);
-    font-size: 2.5rem;
-    color: var(--lava);
-    font-weight: 800;
-  }
-  .ph-label {
-    font-size: 0.7rem;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: var(--stone);
-  }
   figcaption {
-    margin-top: 0.6rem;
+    margin-top: 0.7rem;
     font-family: var(--serif);
     font-style: italic;
     font-size: 0.95rem;
     color: var(--stone);
     line-height: 1.45;
+    display: flex;
+    gap: 0.6rem;
+    align-items: baseline;
+  }
+  figcaption .num {
+    font-family: var(--sans);
+    font-style: normal;
+    font-size: 0.7rem;
+    letter-spacing: 0.18em;
+    color: var(--lava);
+    font-weight: 700;
+    flex-shrink: 0;
+    padding-top: 0.15rem;
   }
   figure { margin: 0; }
 </style>
